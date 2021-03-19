@@ -4,4 +4,5 @@ __pycache__/
 course_overload/__pycache__/
 db.sqlite3
 htmlcov/
+node_modules/
 venv

@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'schools.apps.SchoolsConfig',
+
+    'frontend',
 ]
 
 MIDDLEWARE = [
