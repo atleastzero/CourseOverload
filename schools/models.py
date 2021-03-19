@@ -26,7 +26,7 @@ class Department(models.Model):
 class Course(models.Model):
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     code = models.FloatField()
-    short_name = models.CharField(max_length=10)
+    short_name = models.CharField(max_length=100)
     long_name = models.TextField()
     description = models.TextField()
     units = models.PositiveIntegerField()
@@ -38,7 +38,7 @@ class Course(models.Model):
     last_modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.department.__str__ + code + ": " + short_name
+        return self.department.__str__() + " " + str(self.code) + ": " + self.short_name
 
 
 class Major(models.Model):
@@ -50,4 +50,4 @@ class Major(models.Model):
     last_modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.degree + " in " + self.name + " from " + self.school.__str__
+        return self.degree + " in " + self.name + " from " + self.school.__str__()
