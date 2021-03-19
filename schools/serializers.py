@@ -11,7 +11,7 @@ class SchoolSerializer(serializers.ModelSerializer):
 
 
 class DepartmentSerializer(serializers.ModelSerializer):
-    school = serializers.StringRelatedField(many=False)
+    school = serializers.PrimaryKeyRelatedField(many=False, queryset=School.objects.all())
 
     class Meta:
         model = Department
@@ -19,10 +19,10 @@ class DepartmentSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    school = serializers.StringRelatedField(many=False)
-    department = serializers.StringRelatedField(many=False)
-    prerequisites = serializers.StringRelatedField(many=True)
-    corequisites = serializers.StringRelatedField(many=True)
+    school = serializers.PrimaryKeyRelatedField(many=False, queryset=School.objects.all())
+    department = serializers.PrimaryKeyRelatedField(many=False, queryset=Department.objects.all())
+    prerequisites = serializers.PrimaryKeyRelatedField(many=True, queryset=Course.objects.all())
+    corequisites = serializers.PrimaryKeyRelatedField(many=True, queryset=Course.objects.all())
 
     class Meta:
         model = Course
@@ -41,8 +41,8 @@ class CourseSerializer(serializers.ModelSerializer):
 
 
 class MajorSerializer(serializers.ModelSerializer):
-    school = serializers.StringRelatedField(many=False)
-    courses_required = serializers.StringRelatedField(many=True)
+    school = serializers.PrimaryKeyRelatedField(many=False, queryset=School.objects.all())
+    courses_required = serializers.PrimaryKeyRelatedField(many=True, queryset=Course.objects.all())
 
     class Meta:
         model = Department
