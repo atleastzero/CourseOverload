@@ -64,7 +64,7 @@ ROOT_URLCONF = 'course_overload.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,6 +89,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# LogoutView Redirect
+
+LOGOUT_REDIRECT_URL = "/"
 
 
 # Password validation
