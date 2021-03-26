@@ -1,0 +1,10 @@
+.Card {
+    background-color: lightgrey;
+    font-size: 12px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.Card-title {
+    font-weight: bold;
+}
